@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+body {
+    background-image: url("../image/background.jpg");
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid white;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+th,
+td {
+    border-bottom: 1px solid white;
+    padding: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+input:focus {
+    border-color: white;
+}
+
+.indexButton {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.tableButton {
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.tableButton:hover {
+    border-color: darkgray;
+    color: darkgray;
+}
+
+.tableButton:active {
+    position: relative;
+    top: 2px;
+}
+
+.addButton {
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: cyan;
+}
+
+.addButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.delButton {
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+.delButton:active {
+    position: relative;
+    top: 1px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/table.js"></script>
+    <title>단어학습</title>
+</head>
+
+<body>
+    <button type="button" class="indexButton" onclick="location.href='index'">
+        META CLASS</button>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>언어</th>
+                <th>레벨</th>
+                <th>단원</th>
+                <th>구분</th>
+                <th>한국어</th>
+                <th>중국어</th>
+                <th>영어</th>
+                <th>러시아어</th>
+                <th>갱신일자</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>000</td>
+                <td><input type="text" maxlength="2" style="width: 25px;"
+                        oninput="this.value = this.value.replace(/[0-9]|[^\!-z]/g, '');"></td>
+                <td><input type="text" maxlength="1" style="width: 25px;"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                <td><input type="text" maxlength="2" style="width: 25px;"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                <td><input type="text" maxlength="1" style="width: 25px;"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                <td><input type="text" maxlength="50" style="width: 100px;"></td>
+                <td><input type="text" maxlength="50" style="width: 100px;"></td>
+                <td><input type="text" maxlength="50" style="width: 100px;"></td>
+                <td><input type="text" maxlength="50" style="width: 100px;"></td>
+                <td>YYYY-MM-DD</td>
+                <th><button type="button" class="addButton" onclick="addRow()">추가</button></th>
+            </tr>
+        </thead>
+        <tbody id="word">
+        </tbody>
+    </table>
+</body>
+
+</html>
