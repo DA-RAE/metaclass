@@ -1,5 +1,5 @@
 <?php
-include 'dp.php';
+include 'db.php';
 
 $table = $_POST['table'];
 $record = $_POST['record'];
