@@ -2,10 +2,10 @@
 include 'db.php';
 
 $table = $_POST['table'];
-$result = $connect->query('SELECT * FROM ' + $table);
 
-$array = array();
+$result = $connect->query('SELECT * FROM ' + $table);
+$record = array();
 while ($row = $result->fetch_row()) {
-    array_push($array, $row);
+    array_push($record, $row);
 }
-return $array;
+return $record;
