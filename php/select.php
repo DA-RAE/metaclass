@@ -3,9 +3,10 @@ include 'db.php';
 
 $table = $_POST['table'];
 
-$result = $connect->query('SELECT * FROM ' + $table);
-$record = array();
+$sql = `SELECT * FROM ` + $table;
+$result = $connect->query($sql);
+$value = array();
 while ($row = $result->fetch_row()) {
-    array_push($record, $row);
+    array_push($value, $row);
 }
-return $record;
+return $value;
