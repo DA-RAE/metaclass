@@ -2,8 +2,8 @@
 include 'db.php';
 
 $table = $_POST['table'];
-$column = $_POST['column'];
-$value = $_POST['value'];
+$idColumn = $_POST['idColumn'];
+$idValue = $_POST['idValue'];
 
-$sql = `DELETE FROM ` + $table + ` WHERE ` + $column + ` = '` + $value + `'`;
+$sql = `DELETE FROM ` + $table + ` WHERE ` + $idColumn + ` = ` + $idValue;
 $connect->query($sql);
