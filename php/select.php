@@ -1,12 +1,10 @@
 <?php
+header('Content-Type: application/json');
 include 'db.php';
 
-$table = $_POST['table'];
+$table = json_decode($_POST['table'], true);
 
 $sql = `SELECT * FROM ` + $table;
 $result = $connect->query($sql);
-$value = array();
-while ($row = $result->fetch_row()) {
-    array_push($value, $row);
-}
-return $value;
+$value = $result->fetch_all(MYSQLI_ASSOC);
+echo json_encode($value);

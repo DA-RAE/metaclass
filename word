@@ -41,10 +41,10 @@
                 <td><input type="text" maxlength="50" style="width: 100px;"></td>
                 <td><input type="text" maxlength="50" style="width: 100px;"></td>
                 <td>YYYY-MM-DD</td>
-                <th><button type="button" class="addButton" onclick="addRow()">추가</button></th>
+                <th><button type="button" class="addButton" onclick="insertWord()">추가</button></th>
             </tr>
         </thead>
-        <tbody id="word">
+        <tbody id="table">
         </tbody>
     </table>
 </body>

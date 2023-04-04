@@ -1,7 +1,11 @@
 var num = 000;
 
-function addRow() {
-  var html = '';
+function selectWord() {
+
+}
+
+function insertWord() {
+  let html = '';
   num++;
 
   html += `<tr>`;
@@ -15,9 +19,27 @@ function addRow() {
   html += `<td><input type="text" maxlength="50" style="width: 100px;"></td>`;
   html += `<td><input type="text" maxlength="50" style="width: 100px;"></td>`;
   html += `<td>YYYY-MM-DD</td>`;
-  html += `<th><button type="button" class="delButton" onclick="addRow()">삭제</button></th>`;
+  html += `<th><button type="button" class="delButton" onclick="insertWord()">삭제</button></th>`;
 
-  document.getElementById('word').innerHTML += html;
+  document.getElementById('table').innerHTML += html;
+}
+
+function deleteWord() {
+
+}
+
+function updateWord() {
+
+}
+
+function postPhp(url, value) {
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(value)
+  })
+    .then(respons => respons.json)
+    .then(result => { return result });
 }
 
 var baseCamp = 0;
