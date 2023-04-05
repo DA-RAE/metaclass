@@ -1,7 +1,27 @@
 var num = 000;
 
 function selectWord() {
+  const url = 'http://127.0.0.1/metaclass/php/select.php';
+  const value = {
+    table: "word"
+  };
+  let result = postPhp(url, value);
 
+  let html = ``;
+  for (let i = 0; i < result.length; i++) {
+    html += `<tr>`;
+    html += ` <td>` + result[i['num']] + `</td>`;
+    html += ` <td><input type="text" maxlength="2" style="width: 25px;" oninput="this.value = this.value.replace(/[0-9]|[^\!-z]/g, '');">` + result[i['language']] + `</td>`;
+    html += ` <td><input type="text" maxlength="1" style="width: 25px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');">` + result[i['level']] + `</td>`;
+    html += ` <td><input type="text" maxlength="2" style="width: 25px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');">` + result[i['chapter']] + `</td>`;
+    html += ` <td><input type="text" maxlength="1" style="width: 25px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');">` + result[i['gubun']] + `</td>`;
+    html += ` <td><input type="text" maxlength="50" style="width: 100px;">` + result[i['kl']] + `</td>`;
+    html += ` <td><input type="text" maxlength="50" style="width: 100px;">` + result[i['cl']] + `</td>`;
+    html += ` <td><input type="text" maxlength="50" style="width: 100px;">` + result[i['el']] + `</td>`;
+    html += ` <td><input type="text" maxlength="50" style="width: 100px;">` + result[i['rl']] + `</td>`;
+    html += ` <td>` + result[i['regdate']] + `</td>`;
+    html += `<th><button type="button" class="delButton" onclick="deleteWord()">삭제</button></th>`;
+  }
 }
 
 function insertWord() {
@@ -35,7 +55,9 @@ function updateWord() {
 function postPhp(url, value) {
   fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(value)
   })
     .then(respons => respons.json)

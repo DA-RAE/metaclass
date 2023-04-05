@@ -2,7 +2,8 @@
 header('Content-Type: application/json');
 include 'db.php';
 
-$table = json_decode($_POST['table'], true);
+$post = json_decode(file_get_contents('php://input'));
+$table = json_decode($_POST[$post], true);
 
 $sql = `SELECT * FROM ` + $table;
 $result = $connect->query($sql);

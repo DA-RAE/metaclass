@@ -2,7 +2,7 @@
 
 $dbHost = 'localhost';
 $dbId = 'root';
-$dbPw = 'darae155849';
+$dbPw = 'darae4957';
 $dbName = 'metaclass';
 
 $connect = new mysqli($dbHost, $dbId, $dbPw, $dbName);

@@ -2,12 +2,13 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/table.js"></script>
     <title>단어학습</title>
 </head>
 
-<body>
+<body onload="selectWord()">
     <button type="button" class="indexButton" onclick="location.href='index'">
         META CLASS</button>
     <br>
