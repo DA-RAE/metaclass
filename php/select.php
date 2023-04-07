@@ -1,11 +1,15 @@
 <?php
-header('Content-Type: application/json');
 include 'db.php';
 
-$post = json_decode(file_get_contents('php://input'));
-$table = json_decode($_POST[$post], true);
+$table = $_POST['table'];
 
-$sql = `SELECT * FROM ` + $table;
-$result = $connect->query($sql);
-$value = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($value);
+try {
+    $sql = "SELECT * FROM $table";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+
+    header('Content-Type: application/json');
+    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+} catch (PDOException $e) {
+    echo 'SELECT 실패 : ' . $e->getMessage();
+}

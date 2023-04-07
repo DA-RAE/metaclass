@@ -1,13 +1,16 @@
 <?php
-header('Content-Type: application/json');
 include 'db.php';
 
-$table = json_decode($_POST['table'], true);
-$column = json_decode($_POST['column'], true);
-$value = json_decode($_POST['value'], true);
-$idColumn = json_decode($_POST['idColumn'], true);
-$idValue = json_decode($_POST['idValue'], true);
+$table = $_POST['table'];
+$idColumn = $_POST['idColumn'];
+$idValue = $_POST['idValue'];
+$column = $_POST['column'];
+$value = $_POST['value'];
 
-$sql = `UPDATE ` + $table + ` SET ` + $column + ` = ` + $value + ` WHERE ` + $idColumn + ` = ` + $idValue;
-$result = $connect->query($sql);
-echo json_encode($result);
+try {
+    $sql = "UPDATE $table SET $column = $value WHERE $idColumn = $idValue";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+} catch (PDOException $e) {
+    echo 'UPDATE 실패 : ' . $e->getMessage();
+}

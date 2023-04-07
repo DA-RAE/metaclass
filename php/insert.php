@@ -1,16 +1,13 @@
 <?php
-header('Content-Type: application/json');
 include 'db.php';
 
-$table = json_decode($_POST['table'], true);
-$value = json_decode($_POST['value'], true);
+$table = $_POST['table'];
+$value = $_POST['value'];
 
-$sql = `INSERT INTO ` + $table + ` VALUES (`;
-for ($i = 0; $i < count($value); $i++) {
-    $sql += $value[$i];
-    $sql += `, `;
+try {
+    $sql = "INSERT INTO $table VALUES ($value)";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+} catch (PDOException $e) {
+    echo 'INSERT 실패 : ' . $e->getMessage();
 }
-$sql = substr($sql, 0, -2);
-$sql += `)`;
-$result = $connect->query($sql);
-echo json_encode($result);

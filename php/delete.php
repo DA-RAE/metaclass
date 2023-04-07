@@ -1,12 +1,14 @@
 <?php
-header('Content-Type: application/json');
 include 'db.php';
 
-$table = json_decode($_POST['table'], true);
-$idColumn = json_decode($_POST['idColumn'], true);
-$idValue = json_decode($_POST['idValue'], true);
+$table = $_POST['table'];
+$idColumn = $_POST['idColumn'];
+$idValue = $_POST['idValue'];
 
-$sql = `DELETE FROM ` + $table + ` WHERE ` + $idColumn + ` = ` + $idValue;
-$connect->query($sql);
-$result = $connect->query($sql);
-echo json_encode($result);
+try {
+    $sql = "DELETE FROM $table WHERE $idColumn = $idValue";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+} catch (PDOException $e) {
+    echo 'DELETE 실패 : ' . $e->getMessage();
+}

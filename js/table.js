@@ -55,10 +55,7 @@ function updateWord() {
 function postPhp(url, value) {
   fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(value)
+    body: value
   })
     .then(respons => respons.json)
     .then(result => { return result });
