@@ -1,27 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <link href="./css/style.css" rel="stylesheet">
-    <title>MetaClass 관리자 페이지</title>
+    <meta charset='UTF-8'>
+    <link href='./css/style.css' rel='stylesheet'>
 </head>
 
 <body>
-    <button type="button" class="indexButton" onclick="location.href='index'">
-        META CLASS</button>
-    <br>
-    <button type="button" class="tableButton" onclick="location.href='word'">
-        단어학습</button>
-    &nbsp;
-    <button type="button" class="tableButton" onclick="location.href='speak'">
-        회화연습</button>
-    &nbsp;
-    <button type="button" class="tableButton" onclick="location.href='member'">
-        회원관리</button>
-    &nbsp;
-    <button type="button" class="tableButton" onclick="location.href='grade'">
-        성적관리</button>
+    <div id='app'></div>
+    <script type="module" src='./js/initialize.js'></script>
 </body>
 
 </html>
