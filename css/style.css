@@ -5,13 +5,7 @@ body {
     text-align: center;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
-
-table {
+.table {
     margin-left: auto;
     margin-right: auto;
     border-top: 1px solid white;
@@ -19,8 +13,8 @@ table {
     padding: 10px;
 }
 
-th,
-td {
+.th,
+.td {
     border-bottom: 1px solid white;
     padding: 10px;
     font-family: 'Nanum Gothic', sans-serif;
@@ -29,7 +23,7 @@ td {
     color: white;
 }
 
-input {
+.input {
     outline: none;
     border: none;
     border-bottom: 1px solid gray;
@@ -40,7 +34,7 @@ input {
     color: white;
 }
 
-input:focus {
+.input:focus {
     border-color: white;
 }
 
@@ -71,12 +65,12 @@ input:focus {
     color: white;
 }
 
-.tableButton:hover {
+.pageButton:hover {
     border-color: darkgray;
     color: darkgray;
 }
 
-.tableButton:active {
+.pageButton:active {
     position: relative;
     top: 2px;
 }
