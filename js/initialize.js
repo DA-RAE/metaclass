@@ -1,4 +1,4 @@
-export default class Initialize {
+class Initialize {
     main() {
         document.title = 'MetaClass 관리자 페이지';
         document.getElementById('app').innerHTML = '';
@@ -19,32 +19,23 @@ export default class Initialize {
         component.br('br1', 'app');
         component.table('table', 'app', 'table');
         component.thead('thead', 'table');
-        component.tr('trName', 'thead');
-        component.th('thName0', 'trName', 'th', '번호');
-        component.th('thName1', 'trName', 'th', '언어');
-        component.th('thName2', 'trName', 'th', '레벨');
-        component.th('thName3', 'trName', 'th', '단원');
-        component.th('thName4', 'trName', 'th', '구분');
-        component.th('thName5', 'trName', 'th', '한국어');
-        component.th('thName6', 'trName', 'th', '중국어');
-        component.th('thName7', 'trName', 'th', '영어');
-        component.th('thName8', 'trName', 'th', '러시아어');
-        component.th('thName9', 'trName', 'th', '갱신일자');
-        component.th('thName10', 'trName', 'th', '');
-        component.tr('trInput', 'thead');
-        component.th('thInput0', 'trInput', 'th', '');
-        component.th('thInput1', 'trInput', 'th', '');
-        component.th('thInput2', 'trInput', 'th', '');
-        component.th('thInput3', 'trInput', 'th', '');
-        component.th('thInput4', 'trInput', 'th', '');
-        component.th('thInput5', 'trInput', 'th', '');
-        component.th('thInput6', 'trInput', 'th', '');
-        component.th('thInput7', 'trInput', 'th', '');
-        component.th('thInput8', 'trInput', 'th', '');
-        component.th('thInput9', 'trInput', 'th', '');
-        component.th('thInput10', 'trInput', 'th', '');
-        component
-
+        component.tr('tName', 'thead');
+        component.tr('tInput', 'thead');
+        const tName = ['번호', '언어', '레벨', '단원', '구분', '한국어', '중국어', '영어', '러시아어', '갱신일자', '', ''];
+        for (let i = 0; i < tName.length; i++) {
+            component.th('tName' + i, 'tName', 'th', tName[i])
+            component.th('tInput' + i, 'tInput', 'th', '')
+        }
+        component.span('num', 'tInput0', 'span', '000');
+        component.engInput('language', 'tInput1', 'input', '', '2', '2', '25px');
+        component.numberInput('level', 'tInput2', 'input', '', '1', '1', '25px');
+        component.numberInput('chapter', 'tInput3', 'input', '', '2', '2', '25px');
+        component.numberInput('gubun', 'tInput4', 'input', '', '1', '1', '25px');
+        component.input('kl', 'tInput5', 'input', '', '0', '50', '100px');
+        component.input('cl', 'tInput6', 'input', '', '0', '50', '100px');
+        component.input('el', 'tInput7', 'input', '', '0', '50', '100px');
+        component.input('rl', 'tInput8', 'input', '', '0', '50', '100px');
+        component.span('regdate', 'tInput9', 'span', component.getDate());
     }
 
     speak() {
@@ -73,3 +64,4 @@ export default class Initialize {
 }
 
 import Component from "./component.js";
+export default Initialize;

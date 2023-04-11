@@ -1,8 +1,16 @@
-export default class Component {
+class Component {
     br(id, loc) {
         const br = document.createElement('br');
         br.id = id;
         document.getElementById(loc).appendChild(br)
+    }
+
+    span(id, loc, css, text) {
+        const span = document.createElement('span');
+        span.id = id;
+        span.classList.add(css);
+        span.textContent = text;
+        document.getElementById(loc).appendChild(span);
     }
 
     funcButton(id, loc, css, text, func) {
@@ -10,7 +18,7 @@ export default class Component {
         button.id = id;
         button.classList.add(css);
         button.textContent = text;
-        button.onclick = function() {
+        button.onclick = function () {
             window[func]();
         }
         document.getElementById(loc).appendChild(button);
@@ -69,10 +77,10 @@ export default class Component {
         const input = document.createElement('input');
         input.id = id;
         input.classList.add(css);
-        input.textContent = text;
+        input.value = text;
         input.minLength = min;
         input.maxLength = max;
-        input.width = width;
+        input.style.width = width;
         document.getElementById(loc).appendChild(input);
     }
 
@@ -80,11 +88,13 @@ export default class Component {
         const input = document.createElement('input');
         input.id = id;
         input.classList.add(css);
-        input.textContent = text;
+        input.value = text;
         input.minLength = min;
         input.maxLength = max;
-        input.width = width;
-        input.oninput = input.value = input.value.replace(/[0-9]|[^\!-z]/g, '');
+        input.style.width = width;
+        input.oninput = function () {
+            input.value = input.value.replace(/[^a-zA-Z]/g, '');
+        }
         document.getElementById(loc).appendChild(input);
     }
 
@@ -92,11 +102,13 @@ export default class Component {
         const input = document.createElement('input');
         input.id = id;
         input.classList.add(css);
-        input.textContent = text;
+        input.value = text;
         input.minLength = min;
         input.maxLength = max;
-        input.width = width;
-        input.oninput = input.value = input.value.replace(/[^0-9]/g, '');
+        input.style.width = width;
+        input.oninput = function () {
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
         document.getElementById(loc).appendChild(input);
     }
 
@@ -108,12 +120,22 @@ export default class Component {
 
     }
 
+    getDate() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const date = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${date}`;
+    }
+
     postPhp(url, value) {
         fetch(url, {
-          method: 'POST',
-          body: value
+            method: 'POST',
+            body: value
         })
-          .then(respons => respons.json)
-          .then(result => { return result });
-      }
+            .then(respons => respons.json)
+            .then(result => { return result });
+    }
 }
+
+export default Component;
