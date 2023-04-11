@@ -65,6 +65,41 @@ export default class Component {
         document.getElementById(loc).appendChild(td);
     }
 
+    input(id, loc, css, text, min, max, width) {
+        const input = document.createElement('input');
+        input.id = id;
+        input.classList.add(css);
+        input.textContent = text;
+        input.minLength = min;
+        input.maxLength = max;
+        input.width = width;
+        document.getElementById(loc).appendChild(input);
+    }
+
+    engInput(id, loc, css, text, min, max, width) {
+        const input = document.createElement('input');
+        input.id = id;
+        input.classList.add(css);
+        input.textContent = text;
+        input.minLength = min;
+        input.maxLength = max;
+        input.width = width;
+        input.oninput = input.value = input.value.replace(/[0-9]|[^\!-z]/g, '');
+        document.getElementById(loc).appendChild(input);
+    }
+
+    numberInput(id, loc, css, text, min, max, width) {
+        const input = document.createElement('input');
+        input.id = id;
+        input.classList.add(css);
+        input.textContent = text;
+        input.minLength = min;
+        input.maxLength = max;
+        input.width = width;
+        input.oninput = input.value = input.value.replace(/[^0-9]/g, '');
+        document.getElementById(loc).appendChild(input);
+    }
+
     addRow() {
 
     }

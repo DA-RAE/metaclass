@@ -31,6 +31,20 @@ export default class Initialize {
         component.th('thName8', 'trName', 'th', '러시아어');
         component.th('thName9', 'trName', 'th', '갱신일자');
         component.th('thName10', 'trName', 'th', '');
+        component.tr('trInput', 'thead');
+        component.th('thInput0', 'trInput', 'th', '');
+        component.th('thInput1', 'trInput', 'th', '');
+        component.th('thInput2', 'trInput', 'th', '');
+        component.th('thInput3', 'trInput', 'th', '');
+        component.th('thInput4', 'trInput', 'th', '');
+        component.th('thInput5', 'trInput', 'th', '');
+        component.th('thInput6', 'trInput', 'th', '');
+        component.th('thInput7', 'trInput', 'th', '');
+        component.th('thInput8', 'trInput', 'th', '');
+        component.th('thInput9', 'trInput', 'th', '');
+        component.th('thInput10', 'trInput', 'th', '');
+        component
+
     }
 
     speak() {
